@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Home Page{% endblock head_title %}
+
+{% block content %}
+<h1>this is {{ title }}</h1>
+<p>Request User : {{ request.user }}</p>
+<p>User : {{ user }}</p>
+<p>User Authentication :  {{ user.is_authenticated }}</p>
+<p>User Path : {{ request.path }}</p> 
+<br>
+<br>
+<br>
+
+{% for a in blog_list %}
+    {% include 'blog/list-inline.html' with blog_post=a truncate=True details=False %}
+{% endfor %}
+{% endblock content %}
